@@ -6,13 +6,23 @@ const humidity = document.querySelector(".humidity");
 const speed = document.querySelector(".speed");
 
 const updateweather = (data) => {
-    console.log(data);
-    
-    place.innerHTML = `${data.location.name}, ${data.location.country}`;
-    placeCondition.src = data.current.condition.icon;
-    temprature.innerHTML = `Temperature: ${data.current.temp_c} °C`;
-    humidity.innerHTML = `Humidity: ${data.current.humidity} %`;
-    speed.innerHTML = `Wind Speed: ${data.current.wind_kph} km/h`;
+    if (data.error) {
+        place.innerHTML = "City not found!";
+        placeCondition.src = "";
+        temprature.innerHTML = "";
+        humidity.innerHTML = "";
+        speed.innerHTML = "";
+    } else {
+        place.innerHTML = `${data.location.name}, ${data.location.country}`;
+        placeCondition.src = data.current.condition.icon;
+        temprature.innerHTML = `Temperature: ${data.current.temp_c} °C`;
+        humidity.innerHTML = `Humidity: ${data.current.humidity} %`;
+        speed.innerHTML = `Wind Speed: ${data.current.wind_kph} km/h`;
+    }
+}
+
+const handleCityNotFound = () => {
+    place.innerHTML = `City Not Found.`;
 }
 
 const fetchData = (event) => {
