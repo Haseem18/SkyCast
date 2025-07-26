@@ -21,10 +21,6 @@ const updateweather = (data) => {
     }
 }
 
-const handleCityNotFound = () => {
-    place.innerHTML = `City Not Found.`;
-}
-
 const fetchData = (event) => {
     event.preventDefault();
 
