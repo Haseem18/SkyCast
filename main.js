@@ -5,6 +5,14 @@ const temprature = document.querySelector(".temperature");
 const humidity = document.querySelector(".humidity");
 const speed = document.querySelector(".speed");
 
+const updateLoading = () => {
+    place.innerHTML = "Loading...";
+    placeCondition.src = "";
+    temprature.innerHTML = "";
+    humidity.innerHTML = "";
+    speed.innerHTML = "";
+};
+
 const updateweather = (data) => {
     if (data.error) {
         place.innerHTML = "City not found!";
@@ -26,6 +34,8 @@ const fetchData = (event) => {
 
     const data = new FormData(form);
     const { place: city } = Object.fromEntries(data.entries());
+
+    updateLoading();
     
     fetch(`https://api.weatherapi.com/v1/current.json?key=604b3f8e19e249d799f70411250401&q=${city}&aqi=yes`)
     .then(response => response.json())
