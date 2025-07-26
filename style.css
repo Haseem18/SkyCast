@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #141E30, #243B55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+#weather_container {
+    width: 90%;
+    max-width: 45rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px) saturate(120%);
+    -webkit-backdrop-filter: blur(25px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Search Bar */
+.search_bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search_bar input {
+    flex-grow: 1;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search_bar input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search_bar input:focus {
+    border: 1px solid rgba(138, 180, 255, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 1.2rem rgba(138, 180, 255, 0.5);
+}
+
+.search_bar button {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background: linear-gradient(135deg, #3a3a9e, #6e44ff);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 1rem rgba(110, 68, 255, 0.5),
+                0 0.4rem 1.2rem rgba(0, 0, 0, 0.4);
+}
+
+.search_bar button:hover {
+    background: linear-gradient(135deg, #6e44ff, #8f6fff);
+    transform: translateY(-2px);
+    box-shadow: 0 0 1.4rem rgba(110, 68, 255, 0.7),
+                0 0.6rem 1.8rem rgba(0, 0, 0, 0.5);
+}
+
+.search_bar button:active {
+    transform: translateY(0);
+}
+
+main {
+    color: white;
+    text-align: center;
+}
+
+.place {
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.place_condition {
+    display: block;
+    margin: 1rem auto;
+    width: 12rem;
+    filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.3));
+}
+
+.temperature {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.bottom_info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.bottom_info p {
+    font-size: 1.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 1rem;
+    min-width: 10rem;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 52%; 
+    }
+
+    .bottom_info {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .search_bar button {
+        flex: 1 1 100%;
+    }
+
+    .search_bar input {
+        flex: 1 1 100%;
+    }
+}
